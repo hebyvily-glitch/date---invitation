@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Une invitation spéciale ✨</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffd6e0, #fff);
+    font-family: "Poppins", Arial, sans-serif;
+    overflow: hidden;
+}
+
+.card {
+    background: rgba(255,255,255,0.95);
+    width: 90%;
+    max-width: 450px;
+    padding: 35px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    animation: appear 1.5s ease;
+}
+
+h1 {
+    color: #d63384;
+}
+
+p {
+    font-size: 18px;
+    color: #444;
+    line-height: 1.6;
+}
+
+button {
+    display: block;
+    width: 90%;
+    margin: 12px auto;
+    padding: 15px;
+    border: none;
+    border-radius: 30px;
+    font-size: 17px;
+    cursor: pointer;
+    background: #d63384;
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+#resultat {
+    margin-top: 20px;
+    color: #d63384;
+    font-weight: bold;
+}
+
+.heart {
+    position: absolute;
+    color: #ff4d6d;
+    font-size: 25px;
+    animation: float 8s linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity:0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity:1;
+        transform: translateY(0);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>✨ Une petite invitation pour toi</h1>
+
+<p>
+Bonjour ……a,
+</p>
+
+<p>
+J’ai envie d’apprendre à mieux te connaître,
+de partager un moment agréable avec toi,
+avec une belle conversation et quelques sourires.
+</p>
+
+<p>
+Alors j’ai une question spéciale pour toi… ❤️
+</p>
+
+<h2>
+Accepterais-tu un premier rendez-vous avec moi ? 😊
+</h2>
+
+<button onclick="choix('❤️ Oui, avec plaisir')">
+❤️ Oui, avec plaisir
+</button>
+
+<button onclick="choix('😉 Peut-être, surprends-moi')">
+😉 Peut-être
+</button>
+
+<button onclick="choix('✨ J’aimerais en savoir plus')">
+✨ J’aimerais en savoir plus
+</button>
+
+<div id="resultat"></div>
+
+<p>
+— Prezidanpeyia
+</p>
+
+</div>
+
+
+<script>
+
+function choix(message){
+document.getElementById("resultat").innerHTML =
+"Merci pour ta réponse : " + message + " ❤️";
+}
+
+
+// création des coeurs animés
+
+setInterval(function(){
+
+let coeur=document.createElement("div");
+coeur.className="heart";
+coeur.innerHTML="❤️";
+
+coeur.style.left=Math.random()*100+"vw";
+coeur.style.animationDuration=(5+Math.random()*5)+"s";
+
+document.body.appendChild(coeur);
+
+setTimeout(()=>{
+coeur.remove();
+},8000);
+
+},500);
+
+</script>
+
+</body>
+</html>
